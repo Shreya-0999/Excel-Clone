@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="menu_container">
+        <div class="formating_conttainer">
+            <div class="subGroup">
+                <select id="font-family" class="font-family">
+                    <option value="Arial">Arial</option>
+                    <option value="Cambria">Cambria</option>
+                    <option value="Gerogia">Gerogia</option>
+                    <option value="monospace">monospace</option>
+                    <option value="san-serif">san-serif</option>
+                    <option value="fantasy">fantasy</option>
+                </select>
+                <div class="BUI_container">
+                    <input type="button" value="B" class="bold">
+                    <input type="button" value="I" class="italic">
+                    <input type="button" value="U" class="underline">
+                </div>
+            </div>
+            <div class="subGroup">
+                <select id="font-size" class="font-size">
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                    <option value="32">32</option>
+                </select>
+                <div class="color_container">
+                    <input type="color" id="color">
+                    <input type="color" id="bg-color">
+                </div>
+            </div>
+        </div>
+        <div class="alignment_container">
+            <input type="button" value="L" class="left">
+            <input type="button" value="C" class="center">
+            <input type="button" value="R" class="right">
+        </div>
+    </div>
+
+    <div class="formula_container">
+        <input type="text" class="address_bar" readonly>
+        <div class="seperator">:</div>
+        <input type="text" class="formula_bar">
+    </div>
+
+    <div class="grid_container">
+        <div class="topLeftCorner"></div>
+        <div class="topRow"></div>
+        <div class="leftColumn"></div>
+        <div class="grid"></div>
+    </div>
+
+    <div class="sheet_container">
+        <div class="add_btn_container">
+            <i class="fas fa-plus icon"></i>
+        </div>
+        <div class="sheet_list">
+            <div class="sheet active_sheet" sheetIdx="1">Sheet 1</div>
+        </div>
+    </div>
+    <script src="init.js" defer></script>
+    <script src="formula.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
