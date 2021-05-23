@@ -23,7 +23,6 @@ body {
 img{
     height: 2.5rem;
     width: 2.5rem;
-    box-shadow: 1px 1px 10px 0px rgba(225, 230, 226, 0.965) inset;
 }
 h2{
     font-family:  sans-serif;
