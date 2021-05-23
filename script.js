@@ -27,7 +27,7 @@ let sheetDb = worksheetDb[0];
 /* ********************* MENU CONTAINER********************************** */
 boldBtn.addEventListener("click", function () {
     let isActive = boldBtn.classList.contains("active_icon");
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     let cellObject = sheetDb[rid][cid];
     if (isActive) {
@@ -43,7 +43,7 @@ boldBtn.addEventListener("click", function () {
 
 italicBtn.addEventListener("click", function () {
     let isActive = italicBtn.classList.contains("active_icon");
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     let cellObject = sheetDb[rid][cid];
     if (isActive) {
@@ -59,7 +59,7 @@ italicBtn.addEventListener("click", function () {
 
 underlineBtn.addEventListener("click", function () {
     let isActive = underlineBtn.classList.contains("active_icon");
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     let cellObject = sheetDb[rid][cid];
     if (isActive) {
@@ -75,7 +75,7 @@ underlineBtn.addEventListener("click", function () {
 
 fontFamily.addEventListener("change", function (e) {
     let fontFam = fontFamily.value;
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     cell.style.fontFamily = fontFam;
     let cellObject = sheetDb[rid][cid];
@@ -84,7 +84,7 @@ fontFamily.addEventListener("change", function (e) {
 
 fontSize.addEventListener("change", function (e) {
     let size = fontSize.value;
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     cell.style.fontSize = size + "px";
     let cellObject = sheetDb[rid][cid];
@@ -92,7 +92,7 @@ fontSize.addEventListener("change", function (e) {
 })
 
 leftBtn.addEventListener("click", function () {
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     let cellObject = sheetDb[rid][cid];
     for (let i = 0; i < allAlignBtns.length; i++)
@@ -104,7 +104,7 @@ leftBtn.addEventListener("click", function () {
 })
 
 centerBtn.addEventListener("click", function () {
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     let cellObject = sheetDb[rid][cid];
     for (let i = 0; i < allAlignBtns.length; i++)
@@ -116,7 +116,7 @@ centerBtn.addEventListener("click", function () {
 })
 
 rightBtn.addEventListener("click", function () {
-    let { rid, cid } = getRidCidfromAddress(addressBar.value);
+    let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
     let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
     let cellObject = sheetDb[rid][cid];
     for (let i = 0; i < allAlignBtns.length; i++)
@@ -127,7 +127,7 @@ rightBtn.addEventListener("click", function () {
 })
 
 textColorBtn.addEventListener("change", function(){
-    let address = addressBar.value;
+    let address = addressBar.innerText;
     let color = textColorBtn.value;
     let {rid, cid} = getRidCidfromAddress(address);
     let cellObject = sheetDb[rid][cid];
@@ -136,7 +136,7 @@ textColorBtn.addEventListener("change", function(){
 })
 
 backgroundColorBtn.addEventListener("change", function(){
-    let address = addressBar.value;
+    let address = addressBar.innerText;
     let color = backgroundColorBtn.value;
     let {rid, cid} = getRidCidfromAddress(address);
     let cellObject = sheetDb[rid][cid];
@@ -155,7 +155,7 @@ for (let i = 0; i < AllCells.length; i++) {
         let rowAdd = Number(AllCells[i].getAttribute("rid"));
         let rid = rowAdd + 1;
         let address = cid + rid;
-        addressBar.value = address;
+        addressBar.innerText = address;
 
         // restoring the cell properties
         let cellObject = sheetDb[rowAdd][colAdd];
@@ -188,16 +188,16 @@ for (let i = 0; i < AllCells.length; i++) {
             rightBtn.classList.add("active_icon")
 
         if(cellObject.formula != "")
-            formulaInput.value = cellObject.formula;
+            formulaInput.innerText = cellObject.formula;
         else
-            formulaInput.value = "";
+            formulaInput.innerText = "";
        
     })
 
     AllCells[i].addEventListener("keydown", function(e){
         let obj = AllCells[i].getBoundingClientRect();
         let height = obj.height;
-        let address = addressBar.value;
+        let address = addressBar.innerText;
         let {rid} = getRidCidfromAddress(address);
         let leftCol = document.querySelectorAll(".leftColumn .left-col_box")[rid];
         leftCol.style.height = height + "px";

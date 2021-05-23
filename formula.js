@@ -5,7 +5,7 @@ let AllCells = document.querySelectorAll(".grid .col");
 
 for (let i = 0; i < AllCells.length; i++) {
     AllCells[i].addEventListener("blur", function () {
-        let { rid, cid } = getRidCidfromAddress(addressBar.value);
+        let { rid, cid } = getRidCidfromAddress(addressBar.innerText);
         let cell = document.querySelector(`.col[rid = "${rid}"][cid = "${cid}"]`);
         let cellObject = sheetDb[rid][cid];
 
@@ -14,7 +14,7 @@ for (let i = 0; i < AllCells.length; i++) {
         }
 
         if(cellObject.formula)
-            removeFormula(cellObject, addressBar.value);
+            removeFormula(cellObject, addressBar.innerText);
         
         cellObject.value = cell.innerText;
         changeChildren(cellObject);
@@ -22,9 +22,9 @@ for (let i = 0; i < AllCells.length; i++) {
 }
 
 formulaInput.addEventListener("keydown", function(e){
-    if(e.key == "Enter" && formulaInput.value != ""){
-        let Newformula = formulaInput.value;
-        let {rid , cid} = getRidCidfromAddress(addressBar.value);
+    if(e.key == "Enter" && formulaInput.innerText != ""){
+        let Newformula = formulaInput.innerText;
+        let {rid , cid} = getRidCidfromAddress(addressBar.innerText);
         let cellObject = sheetDb[rid][cid]
         let prevformula = cellObject.formula;
 
@@ -32,11 +32,11 @@ formulaInput.addEventListener("keydown", function(e){
             return;
         
         if(prevformula != "" && prevformula != Newformula){
-            removeFormula(cellObject, addressBar.value);
+            removeFormula(cellObject, addressBar.innerText);
         }
         let evaluatedValue = evaluateFormula(Newformula);
         setUIbyFormula(rid, cid, evaluatedValue);
-        setDBbyFormula(evaluatedValue, Newformula, rid, cid, addressBar.value);
+        setDBbyFormula(evaluatedValue, Newformula, rid, cid, addressBar.innerText);
         changeChildren(cellObject);
     }
 
