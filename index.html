@@ -11,47 +11,49 @@
 </head>
 
 <body>
+    <div class="heading_container">
+        <div class="image_container">
+            <img src="/img/excel.png" alt="">
+        </div>
+        <h2>Excel</h2>
+    </div>
     <div class="menu_container">
         <div class="formating_conttainer">
-            <div class="subGroup">
-                <select id="font-family" class="font-family">
-                    <option value="Arial">Arial</option>
-                    <option value="Cambria">Cambria</option>
-                    <option value="Gerogia">Gerogia</option>
-                    <option value="monospace">monospace</option>
-                    <option value="san-serif">san-serif</option>
-                    <option value="fantasy">fantasy</option>
-                </select>
-                <div class="BUI_container">
-                    <input type="button" value="B" class="bold">
-                    <input type="button" value="I" class="italic">
-                    <input type="button" value="U" class="underline">
-                </div>
+            <select id="font-family" class="font-family dropdown">
+                <option value="Arial">Arial</option>
+                <option value="Cambria">Cambria</option>
+                <option value="Gerogia">Gerogia</option>
+                <option value="monospace">monospace</option>
+                <option value="san-serif">san-serif</option>
+                <option value="fantasy">fantasy</option>
+            </select>
+            <select id="font-size" class="font-size dropdown">
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+                <option value="20">20</option>
+                <option value="32">32</option>
+            </select>
+            <div class="color_container">
+                <input type="color" id="color">
+                <input type="color" id="bg-color">
             </div>
-            <div class="subGroup">
-                <select id="font-size" class="font-size">
-                    <option value="8">8</option>
-                    <option value="10">10</option>
-                    <option value="12">12</option>
-                    <option value="16">16</option>
-                    <option value="20">20</option>
-                    <option value="32">32</option>
-                </select>
-                <div class="color_container">
-                    <input type="color" id="color">
-                    <input type="color" id="bg-color">
-                </div>
+            <div class="BUI_container">
+                <input type="button" value="B" class="bold">
+                <input type="button" value="I" class="italic">
+                <input type="button" value="U" class="underline">
             </div>
         </div>
         <div class="alignment_container">
-            <input type="button" value="L" class="left">
-            <input type="button" value="C" class="center">
-            <input type="button" value="R" class="right">
+            <i class="fas fa-align-left left"></i>
+            <i class="fas fa-align-center center"></i>
+            <i class="fas fa-align-right right"></i>
         </div>
     </div>
 
     <div class="formula_container">
-        <div class="address_bar" ></div>
+        <div class="address_bar"></div>
         <div class="seperator">:</div>
         <div class="formula_bar" contenteditable="true"></div>
     </div>
@@ -75,4 +77,5 @@
     <script src="formula.js" defer></script>
     <script src="script.js" defer></script>
 </body>
+
 </html>
