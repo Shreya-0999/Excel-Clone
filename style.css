@@ -57,6 +57,9 @@ h2{
     outline: none;
     border: 1px solid rgb(214, 211, 211);
 }
+.dropdown:hover{
+    background-color: lightgray;
+}
 .BUI_container{
     width: 30%;
     display: flex;
@@ -84,10 +87,16 @@ h2{
     text-decoration: underline;
     font-weight: bold;
 }
+.BUI_container>*:hover{
+    background-color: lightgray;
+}
 .color_container{
     display: flex;
     justify-content: space-evenly;
     border-left: 1px solid rgb(214, 211, 211);
+}
+.color_container>*:hover{
+    background-color: lightgray;
 }
 
 .color_container>*{
@@ -119,6 +128,9 @@ h2{
     border-radius: 3rem;
     color: rgb(59, 56, 56);
     border: 1px solid rgb(214, 211, 211);
+}
+.alignment_container>*:hover{
+    background-color: lightgray;
 }
 
 .active_icon{
